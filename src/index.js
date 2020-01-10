@@ -48,10 +48,10 @@ const reducer = (state = initialState, action) => {
 		}
 	} else if(action.type === "BUYPRODUCTS") {
 		const products = [...state.productData];
-		state.cartData.map((product, index) => (
-			objIndex = products.findIndex(pdt => pdt.Name === product.Name);
-			products[objIndex].qty = products[objIndex].qty - product.qty;
-		))
+		// state.cartData.map((product, index) => (
+		// 	objIndex = products.findIndex(pdt => pdt.Name === product.Name);
+		// 	products[objIndex].qty = products[objIndex].qty - product.qty;
+		// ))
 		
 		return {
 			cartData: [],

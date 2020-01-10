@@ -3,7 +3,9 @@ import users from '../data/users';
 class Login extends Component {
 	constructor(props) {
 		super(props);
-		console.log(props)
+		if(localStorage.getItem('userId')) {
+      		this.props.history.replace('/dasboard');
+		}
 	}
 	state = {
 		email: '',
@@ -23,7 +25,6 @@ class Login extends Component {
 		let user = users.find(u => u.email === this.state.email && u.password === this.state.password);
 		if(user) {
 			localStorage.setItem('userId', user.id);
-			console.log(this.props.history)
       		this.props.history.replace('/dasboard');
 		} else {
 			alert("Invalid details.");
