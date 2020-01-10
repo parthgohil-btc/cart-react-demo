@@ -21,7 +21,6 @@ const calculateTotal = (cartData) => {
 	return total;
 }
 const reducer = (state = initialState, action) => {
-	console.log(action)
 	if(action.type === "ADDTOCART") {
 		let product = {};
 		product = state.productData.find(pdt => pdt.Name === action.val);
@@ -48,14 +47,14 @@ const reducer = (state = initialState, action) => {
 		}
 	} else if(action.type === "BUYPRODUCTS") {
 		const products = [...state.productData];
-		// state.cartData.map((product, index) => (
-		// 	objIndex = products.findIndex(pdt => pdt.Name === product.Name);
-		// 	products[objIndex].qty = products[objIndex].qty - product.qty;
-		// ))
+		state.cartData.map((product, index) => {
+			let objIndex = products.findIndex(pdt => pdt.Name === product.Name);
+			products[objIndex].qty = products[objIndex].qty - product.qty;
+		})
 		
 		return {
 			cartData: [],
-			productData: products,
+			productData: [...products],
 			totalAmount: 0
 		}
 	}

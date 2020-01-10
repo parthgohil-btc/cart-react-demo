@@ -48,7 +48,7 @@ class Login extends Component {
 	        <div>
 	    		<form id="loginForm" onSubmit={this.handleSubmit.bind(this)}>
 					<p><input type='text' id="email" placeholder="email id" defaultValue={ this.state.email } onChange={ this.handleEmailChange.bind(this) } /></p>
-					<p><input type='text' id="password" placeholder="password" defaultValue={ this.state.password } onChange={ this.handlePasswordChange.bind(this) } /></p>
+					<p><input type='password' id="password" placeholder="password" defaultValue={ this.state.password } onChange={ this.handlePasswordChange.bind(this) } /></p>
 					<p><input type='submit' id="loginSubmit" value="Signin" /></p>
 		    	</form>
 	        </div>

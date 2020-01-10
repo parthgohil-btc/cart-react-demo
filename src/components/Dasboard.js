@@ -8,7 +8,8 @@ class Dasboard extends Component {
       		this.props.history.replace('/');
 		}
 	}
-	logoutHandle() {
+	logoutHandle(e) {
+		e.preventDefault();
 		localStorage.removeItem('userId');
   		this.props.history.replace('/');
 	}
@@ -16,7 +17,7 @@ class Dasboard extends Component {
 	    return (
 	    	<div>
 	    		<div>
-	    			<a href="javascript:void(0);" onClick={this.logoutHandle.bind(this)}>Logout</a>
+	    			<a href="/" onClick={this.logoutHandle.bind(this)}>Logout</a>
 	    		</div>
 				<div style={{width:'70%', float: 'left'}}>
 					<Products />
